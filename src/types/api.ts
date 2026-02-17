@@ -82,3 +82,63 @@ export interface ApiResponse<T> {
   apiVersion: string;
   data: T;
 }
+
+interface CreateWorkoutDto {
+  name: string;
+  notes?: string;
+  duration?: number;
+}
+
+interface CreateExerciseDto {
+  name: string;
+  order: number;
+  type: string;
+  notes?: string;
+}
+
+interface CreateSetDto {
+  repetitions: number;
+  weight: number;
+  order: number;
+  durationInSeconds?: number;
+  restAfterSetInSeconds?: number;
+}
+
+type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced';
+
+interface GenerateWorkoutDto {
+  goal: string;
+  experienceLevel: ExperienceLevel;
+  daysPerWeek: number;
+  durationInMinutes: number;
+  availableEquipment?: string;
+}
+
+interface CreateSetBulkDto {
+  order: number;
+  repetitions: number;
+  weight: number;
+  durationInSeconds?: number;
+  restAfterSetInSeconds?: number;
+}
+
+interface CreateExerciseBulkDto {
+  order: number;
+  name: string;
+  type: string;
+  notes: string;
+  sets: CreateSetBulkDto[];
+}
+
+interface CreateWorkoutBulkDto {
+  name: string;
+  notes?: string;
+  duration?: number;
+  exercises: CreateExerciseBulkDto[];
+}
+
+type UpdateWorkoutDto = Partial<CreateWorkoutDto>;
+
+type UpdateExerciseDto = Partial<CreateExerciseDto>;
+
+type UpdateSetDto = Partial<CreateSetDto>;
