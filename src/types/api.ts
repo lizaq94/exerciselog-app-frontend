@@ -3,20 +3,31 @@ export interface User {
   username: string;
   email: string;
   workouts?: Workout[];
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+export interface SignupCredentials {
+  email: string;
+  password: string;
+  username: string;
 }
 
 export interface Workout {
   id: string;
   name: string;
-  date: Date;
+  date: string;
   notes: string;
   duration: number;
   exercises?: Exercise[];
   userId: string | null;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Exercise {
@@ -27,8 +38,8 @@ export interface Exercise {
   notes: string;
   sets?: Set[];
   workoutId: string | null;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Set {
@@ -39,8 +50,8 @@ export interface Set {
   durationInSeconds: number | null;
   restAfterSetInSeconds: number | null;
   exerciseId: string | null;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface UploadFile {
@@ -51,8 +62,8 @@ export interface UploadFile {
   mime: string;
   size: number;
   exerciseId: string;
-  createDate: Date;
-  updateDate: Date;
+  createDate: string;
+  updateDate: string;
 }
 
 export interface PaginationMeta {
@@ -83,20 +94,20 @@ export interface ApiResponse<T> {
   data: T;
 }
 
-interface CreateWorkoutDto {
+export interface CreateWorkoutDto {
   name: string;
   notes?: string;
   duration?: number;
 }
 
-interface CreateExerciseDto {
+export interface CreateExerciseDto {
   name: string;
   order: number;
   type: string;
   notes?: string;
 }
 
-interface CreateSetDto {
+export interface CreateSetDto {
   repetitions: number;
   weight: number;
   order: number;
@@ -104,9 +115,9 @@ interface CreateSetDto {
   restAfterSetInSeconds?: number;
 }
 
-type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced';
+export type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced';
 
-interface GenerateWorkoutDto {
+export interface GenerateWorkoutDto {
   goal: string;
   experienceLevel: ExperienceLevel;
   daysPerWeek: number;
@@ -114,7 +125,7 @@ interface GenerateWorkoutDto {
   availableEquipment?: string;
 }
 
-interface CreateSetBulkDto {
+export interface CreateSetBulkDto {
   order: number;
   repetitions: number;
   weight: number;
@@ -122,7 +133,7 @@ interface CreateSetBulkDto {
   restAfterSetInSeconds?: number;
 }
 
-interface CreateExerciseBulkDto {
+export interface CreateExerciseBulkDto {
   order: number;
   name: string;
   type: string;
@@ -130,15 +141,15 @@ interface CreateExerciseBulkDto {
   sets: CreateSetBulkDto[];
 }
 
-interface CreateWorkoutBulkDto {
+export interface CreateWorkoutBulkDto {
   name: string;
   notes?: string;
   duration?: number;
   exercises: CreateExerciseBulkDto[];
 }
 
-type UpdateWorkoutDto = Partial<CreateWorkoutDto>;
+export type UpdateWorkoutDto = Partial<CreateWorkoutDto>;
 
-type UpdateExerciseDto = Partial<CreateExerciseDto>;
+export type UpdateExerciseDto = Partial<CreateExerciseDto>;
 
-type UpdateSetDto = Partial<CreateSetDto>;
+export type UpdateSetDto = Partial<CreateSetDto>;

@@ -7,6 +7,12 @@ if (!API_URL && typeof window !== 'undefined') {
   );
 }
 
+let onSessionExpired: (() => void) | null = null;
+
+export function setOnSessionExpired(callback: () => void) {
+  onSessionExpired = callback;
+}
+
 const apiClient = axios.create({
   baseURL: API_URL,
   withCredentials: true,
@@ -70,7 +76,9 @@ apiClient.interceptors.response.use(
             );
       processQueue(axiosErr);
 
-      if (typeof window !== 'undefined') {
+      if (onSessionExpired) {
+        onSessionExpired();
+      } else if (typeof window !== 'undefined') {
         window.location.href = '/login?reason=session_expired';
       }
       return Promise.reject(axiosErr);
