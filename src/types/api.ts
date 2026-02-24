@@ -22,7 +22,7 @@ export interface Workout {
   id: string;
   name: string;
   date: string;
-  notes: string;
+  notes: string | null;
   duration: number;
   exercises?: Exercise[];
   userId: string | null;
@@ -35,7 +35,7 @@ export interface Exercise {
   name: string;
   order: number;
   type: string;
-  notes: string;
+  notes: string | null;
   sets?: Set[];
   workoutId: string | null;
   createdAt: string;
@@ -90,7 +90,9 @@ export interface PaginatedResponse<T> {
 }
 
 export interface ApiResponse<T> {
-  apiVersion: string;
+  statusCode: number;
+  message: string;
+  timestamp: string;
   data: T;
 }
 
