@@ -7,131 +7,245 @@
 :root {
   --font-size: 16px;
 
-  /* === BACKGROUNDS === */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #0f0f1a;
-  --bg-card: #1a1a2e;
+  --el-brand-purple: #7c3aed;
+  --el-brand-lime: #bef264;
 
-  /* === TEXT === */
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  --el-primary: #7c3aed;
+  --el-primary-50: #eeedfe; /* pill / badge background */
+  --el-primary-700: #6d28d9; /* text on primary-50 */
+  --el-primary-hover: #6d28d9;
+  --el-primary-press: #5b21b6;
 
-  /* === ACCENT === */
-  --accent-blue: #3b82f6;
-  --accent-violet: #8b5cf6;
+  --el-accent: #bef264; /* lime — completion / progress */
+  --el-accent-deep: #84cc16; /* lime text on light bg */
 
-  /* === STATUS === */
-  --success: #22c55e;
-  --error: #ef4444;
-  --warning: #f59e0b;
+  --el-page: #fafafa;
+  --el-surface: #ffffff;
+  --el-surface-2: #f4f4f7; /* nested card */
+  --el-elevated: #ffffff;
+  --el-overlay: rgba(15, 15, 20, 0.45);
+
+  --el-text-1: #0f0f14; /* primary text */
+  --el-text-2: #5c5c66; /* secondary text */
+  --el-text-3: #9494a0; /* hint / placeholder */
+  --el-text-on-primary: #ffffff;
+
+  --el-border: #e5e5ea;
+  --el-border-strong: #d1d1d7;
+
+  --el-success: #16a34a;
+  --el-success-bg: #dcfce7;
+  --el-danger: #dc2626;
+  --el-danger-bg: #fee2e2;
+  --el-warning: #d97706;
+  --el-warning-bg: #fef3c7;
+  --el-info: #2563eb;
+  --el-info-bg: #dbeafe;
+
+  /* Floating dark bottom nav — same in both modes. */
+  --el-nav-bg: #15151c;
+  --el-nav-active: #7c3aed;
+  --el-nav-icon: #a8a8b3;
+  --el-nav-icon-on: #ffffff;
+
+  --el-font: var(--font-general-sans), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --el-font-num: var(--font-general-sans), ui-monospace, monospace;
+
+  --el-fs-timer: 56px;
+  --el-fs-display: 32px;
+  --el-fs-h1: 24px;
+  --el-fs-h2: 20px;
+  --el-fs-h3: 17px;
+  --el-fs-body: 16px;
+  --el-fs-body-sm: 14px;
+  --el-fs-caption: 12px;
+  --el-fs-overline: 11px;
+
+  --el-lh-tight: 1;
+  --el-lh-display: 1.1;
+  --el-lh-heading: 1.2;
+  --el-lh-body: 1.5;
+
+  --el-fw-light: 300;
+  --el-fw-regular: 400;
+  --el-fw-medium: 500;
+  --el-fw-semibold: 600;
+
+  --el-tracking-tight: -0.02em;
+  --el-tracking-snug: -0.01em;
+  --el-tracking-wide: 0.08em;
+
+  --el-s-1: 4px;
+  --el-s-2: 8px;
+  --el-s-3: 12px;
+  --el-s-4: 16px;
+  --el-s-5: 20px;
+  --el-s-6: 24px;
+  --el-s-7: 32px;
+  --el-s-8: 40px;
+  --el-s-9: 48px;
+  --el-s-10: 64px;
 
   /* === BORDERS === */
   --border-subtle: rgba(255, 255, 255, 0.03);
   --border-medium: rgba(255, 255, 255, 0.08);
 
-  /* === FONT WEIGHTS === */
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
+  --el-border-1: 1px solid var(--el-border);
+  --el-border-2: 1.5px solid var(--el-border-strong);
 
-  /* === SHADCN SEMANTIC TOKENS === */
-  --radius: 0.75rem;
+  /* Shadows are subtle by design — separation comes from borders. */
+  --el-shadow-1: 0 1px 2px rgba(15, 15, 20, 0.04);
+  --el-shadow-2: 0 4px 12px rgba(15, 15, 20, 0.06);
+  --el-shadow-3: 0 12px 32px rgba(15, 15, 20, 0.1);
+  --el-shadow-nav: 0 8px 24px rgba(15, 15, 20, 0.18);
+  --el-ring-focus: 0 0 0 3px rgba(124, 58, 237, 0.28);
 
-  --background: #0a0a0f;
-  --foreground: #ffffff;
+  --el-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --el-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --el-dur-1: 120ms; /* hover */
+  --el-dur-2: 200ms; /* press / open */
+  --el-dur-3: 320ms; /* sheet / route */
+  --el-dur-4: 560ms; /* progress fills */
 
-  --card: #1a1a2e;
-  --card-foreground: #ffffff;
+  /* shadcn semantic tokens bridged to the --el-* palette (light). */
+  --radius: var(--el-r-md);
 
-  --popover: #1a1a2e;
-  --popover-foreground: #ffffff;
+  --background: var(--el-page);
+  --foreground: var(--el-text-1);
 
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
+  --card: var(--el-surface);
+  --card-foreground: var(--el-text-1);
 
-  --secondary: #0f0f1a;
-  --secondary-foreground: #ffffff;
+  --popover: var(--el-elevated);
+  --popover-foreground: var(--el-text-1);
 
-  --muted: #1a1a2e;
-  --muted-foreground: #71717a;
+  --primary: var(--el-primary);
+  --primary-foreground: var(--el-text-on-primary);
 
-  --accent: #3b82f6;
-  --accent-foreground: #ffffff;
+  --secondary: var(--el-surface-2);
+  --secondary-foreground: var(--el-text-1);
 
-  --destructive: #ef4444;
+  --muted: var(--el-surface-2);
+  --muted-foreground: var(--el-text-2);
+
+  /* Subtle purple-tinted hover surface for ghost/outline elements. */
+  --accent: var(--el-primary-50);
+  --accent-foreground: var(--el-primary-700);
+
+  --destructive: var(--el-danger);
   --destructive-foreground: #ffffff;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --input: transparent;
-  --input-background: #0f0f1a;
-  --switch-background: #1a1a2e;
-  --ring: #3b82f6;
+  --border: var(--el-border);
+  --input: var(--el-border);
+  --input-background: var(--el-surface);
+  --switch-background: var(--el-surface-2);
+  --ring: var(--el-primary);
 
-  /* === CHARTS === */
-  --chart-1: #3b82f6;
-  --chart-2: #8b5cf6;
-  --chart-3: #22c55e;
-  --chart-4: #f59e0b;
-  --chart-5: #ef4444;
+  --chart-1: var(--el-brand-purple);
+  --chart-2: var(--el-accent-deep);
+  --chart-3: var(--el-info);
+  --chart-4: var(--el-warning);
+  --chart-5: var(--el-danger);
 
-  /* === SIDEBAR === */
-  --sidebar: #0f0f1a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #3b82f6;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1a1a2e;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: #3b82f6;
+  --sidebar: var(--el-surface);
+  --sidebar-foreground: var(--el-text-1);
+  --sidebar-primary: var(--el-primary);
+  --sidebar-primary-foreground: var(--el-text-on-primary);
+  --sidebar-accent: var(--el-primary-50);
+  --sidebar-accent-foreground: var(--el-primary-700);
+  --sidebar-border: var(--el-border);
+  --sidebar-ring: var(--el-primary);
 }
 
-.dark {
-  --background: #0a0a0f;
-  --foreground: #ffffff;
+.dark,
+[data-theme='dark'] {
+  --el-primary: #a78bfa; /* text / icons */
+  --el-primary-50: #2d1a5f; /* deep purple pill bg */
+  --el-primary-700: #c7b7ff; /* text on pill */
+  --el-primary-hover: #8b5cf6;
+  --el-primary-press: #7c3aed;
+  --el-text-on-primary: #ffffff;
 
-  --card: #1a1a2e;
-  --card-foreground: #ffffff;
+  --el-accent: #bef264;
+  --el-accent-deep: #a3e635;
 
-  --popover: #1a1a2e;
-  --popover-foreground: #ffffff;
+  --el-page: #0a0a0f;
+  --el-surface: #15151c;
+  --el-surface-2: #1f1f28;
+  --el-elevated: #1f1f28;
+  --el-overlay: rgba(0, 0, 0, 0.6);
 
-  --primary: #3b82f6;
+  --el-text-1: #f5f5f7;
+  --el-text-2: #a8a8b3;
+  --el-text-3: #6e6e7a;
+
+  --el-border: #2c2c36;
+  --el-border-strong: #3a3a47;
+
+  --el-success: #86efac;
+  --el-success-bg: #14532d;
+  --el-danger: #fca5a5;
+  --el-danger-bg: #7f1d1d;
+  --el-warning: #fcd34d;
+  --el-warning-bg: #78350f;
+  --el-info: #93c5fd;
+  --el-info-bg: #1e3a8a;
+
+  --el-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --el-shadow-2: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --el-shadow-3: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --el-shadow-nav: 0 12px 36px rgba(0, 0, 0, 0.55);
+  --el-ring-focus: 0 0 0 3px rgba(167, 139, 250, 0.4);
+
+  --background: var(--el-page);
+  --foreground: var(--el-text-1);
+
+  --card: var(--el-surface);
+  --card-foreground: var(--el-text-1);
+
+  --popover: var(--el-elevated);
+  --popover-foreground: var(--el-text-1);
+
+  /* Filled primaries keep the saturated brand purple so white text stays
+     legible; the lighter --el-primary is reserved for links/icons. */
+  --primary: var(--el-brand-purple);
   --primary-foreground: #ffffff;
 
-  --secondary: #0f0f1a;
-  --secondary-foreground: #ffffff;
+  --secondary: var(--el-surface-2);
+  --secondary-foreground: var(--el-text-1);
 
-  --muted: #1a1a2e;
-  --muted-foreground: #71717a;
+  --muted: var(--el-surface-2);
+  --muted-foreground: var(--el-text-2);
 
-  --accent: #3b82f6;
-  --accent-foreground: #ffffff;
+  --accent: var(--el-primary-50);
+  --accent-foreground: var(--el-primary-700);
 
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
+  --destructive: var(--el-danger);
+  --destructive-foreground: #0a0a0f;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.08);
-  --ring: #3b82f6;
+  --border: var(--el-border);
+  --input: var(--el-border);
+  --input-background: var(--el-surface);
+  --switch-background: var(--el-surface-2);
+  --ring: var(--el-primary);
 
-  --chart-1: #3b82f6;
-  --chart-2: #8b5cf6;
-  --chart-3: #22c55e;
-  --chart-4: #f59e0b;
-  --chart-5: #ef4444;
+  --chart-1: #a78bfa;
+  --chart-2: var(--el-accent-deep);
+  --chart-3: var(--el-info);
+  --chart-4: var(--el-warning);
+  --chart-5: var(--el-danger);
 
-  --sidebar: #0f0f1a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #3b82f6;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1a1a2e;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: #3b82f6;
+  --sidebar: var(--el-surface);
+  --sidebar-foreground: var(--el-text-1);
+  --sidebar-primary: var(--el-primary);
+  --sidebar-primary-foreground: var(--el-text-on-primary);
+  --sidebar-accent: var(--el-primary-50);
+  --sidebar-accent-foreground: var(--el-primary-700);
+  --sidebar-border: var(--el-border);
+  --sidebar-ring: var(--el-primary);
 }
 
 @theme inline {
-  /* === COLORS (shadcn mapping) === */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -167,42 +281,42 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* === CUSTOM COLORS (design system) === */
-  --color-bg-primary: var(--bg-primary);
-  --color-bg-secondary: var(--bg-secondary);
-  --color-bg-card: var(--bg-card);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-violet: var(--accent-violet);
-  --color-success: var(--success);
-  --color-error: var(--error);
-  --color-warning: var(--warning);
-  --color-border-subtle: var(--border-subtle);
-  --color-border-medium: var(--border-medium);
+  /* Brand/surface utilities: enables bg-surface, bg-page, text-lime, border-strong, etc. */
+  --color-brand-purple: var(--el-brand-purple);
+  --color-brand-lime: var(--el-brand-lime);
+  --color-page: var(--el-page);
+  --color-surface: var(--el-surface);
+  --color-surface-2: var(--el-surface-2);
+  --color-elevated: var(--el-elevated);
+  --color-lime: var(--el-accent);
+  --color-lime-deep: var(--el-accent-deep);
+  --color-text-1: var(--el-text-1);
+  --color-text-2: var(--el-text-2);
+  --color-text-3: var(--el-text-3);
+  --color-border-strong: var(--el-border-strong);
+  --color-success: var(--el-success);
+  --color-success-bg: var(--el-success-bg);
+  --color-danger: var(--el-danger);
+  --color-danger-bg: var(--el-danger-bg);
+  --color-warning: var(--el-warning);
+  --color-warning-bg: var(--el-warning-bg);
+  --color-info: var(--el-info);
+  --color-info-bg: var(--el-info-bg);
+  --color-nav-bg: var(--el-nav-bg);
+  --color-nav-active: var(--el-nav-active);
+  --color-nav-icon: var(--el-nav-icon);
+  --color-nav-icon-on: var(--el-nav-icon-on);
 
-  /* === BORDER RADIUS === */
-  /* --radius: 0.75rem (12px) base */
-  /* sm: 8px  — badges, small elements */
-  /* md: 10px — close to inputs */
-  /* lg: 12px — inputs, buttons */
-  /* xl: 16px — cards, modals */
-  /* 2xl: 20px */
-  /* full: 9999px — pills, avatars */
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --font-sans: var(--el-font);
+  --font-mono: var(--el-font-num);
 
-  /* === SHADOWS (glow-based, no traditional shadows) === */
-  --shadow-glow-subtle: 0 0 20px rgba(59, 130, 246, 0.1);
-  --shadow-glow-focus: 0 0 20px rgba(59, 130, 246, 0.2);
-  --shadow-glow-strong: 0 0 30px rgba(59, 130, 246, 0.3);
+  --shadow-el-1: var(--el-shadow-1);
+  --shadow-el-2: var(--el-shadow-2);
+  --shadow-el-3: var(--el-shadow-3);
+  --shadow-el-nav: var(--el-shadow-nav);
 
-  /* === FONT === */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --ease-el: var(--el-ease);
+  --ease-el-out: var(--el-ease-out);
 }
 
 @layer base {
@@ -210,55 +324,103 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-sans);
-    font-feature-settings: 'tnum';
-  }
-
   html {
     font-size: var(--font-size);
   }
 
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--el-font);
+    font-feature-settings: 'ss01', 'cv11';
+    font-size: var(--el-fs-body);
+    line-height: var(--el-lh-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
   h1 {
-    font-size: 1.75rem; /* 28px */
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: var(--el-fs-h1);
+    font-weight: var(--el-fw-medium);
+    line-height: var(--el-lh-heading);
+    letter-spacing: var(--el-tracking-snug);
   }
 
   h2 {
-    font-size: 1.5rem; /* 24px */
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: var(--el-fs-h2);
+    font-weight: var(--el-fw-medium);
+    line-height: var(--el-lh-heading);
+    letter-spacing: var(--el-tracking-snug);
   }
 
   h3 {
-    font-size: 1.25rem; /* 20px */
-    font-weight: 600;
-    line-height: 1.4;
+    font-size: var(--el-fs-h3);
+    font-weight: var(--el-fw-medium);
+    line-height: 1.3;
   }
 
   h4 {
-    font-size: 1rem; /* 16px */
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: var(--el-fs-body);
+    font-weight: var(--el-fw-medium);
+    line-height: var(--el-lh-body);
   }
 
   label {
-    font-size: 0.875rem; /* 14px */
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: var(--el-fs-body-sm);
+    font-weight: var(--el-fw-medium);
+    line-height: var(--el-lh-body);
   }
 
   button {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: var(--el-fs-body);
+    font-weight: var(--el-fw-medium);
+    line-height: var(--el-lh-body);
   }
 
   input {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+    font-size: var(--el-fs-body);
+    font-weight: var(--el-fw-regular);
+    line-height: var(--el-lh-body);
+  }
+}
+
+@layer components {
+  .display {
+    font-size: var(--el-fs-display);
+    font-weight: var(--el-fw-medium);
+    line-height: var(--el-lh-display);
+    letter-spacing: var(--el-tracking-tight);
+  }
+
+  .timer {
+    font-size: var(--el-fs-timer);
+    font-weight: var(--el-fw-medium);
+    line-height: var(--el-lh-tight);
+    letter-spacing: var(--el-tracking-tight);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+
+  .body-sm {
+    font-size: var(--el-fs-body-sm);
+    line-height: var(--el-lh-body);
+  }
+
+  .caption {
+    font-size: var(--el-fs-caption);
+    font-weight: var(--el-fw-medium);
+    line-height: 1.4;
+  }
+
+  .overline {
+    font-size: var(--el-fs-overline);
+    font-weight: var(--el-fw-medium);
+    letter-spacing: var(--el-tracking-wide);
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--el-text-2);
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
   }
 }

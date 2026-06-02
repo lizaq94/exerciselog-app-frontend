@@ -1,18 +1,25 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { QueryProvider } from '@/providers/query-provider';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const generalSans = localFont({
+  variable: '--font-general-sans',
+  display: 'swap',
+  src: [
+    {
+      path: './fonts/GeneralSans-Variable.woff2',
+      weight: '200 600',
+      style: 'normal',
+    },
+    {
+      path: './fonts/GeneralSans-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -45,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className={generalSans.variable} suppressHydrationWarning>
+      <body className="antialiased">
         <ThemeProvider>
           <QueryProvider>{children}</QueryProvider>
           <Toaster />
