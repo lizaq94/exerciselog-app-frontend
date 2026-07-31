@@ -5,29 +5,26 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-size: 16px;
-
   --el-brand-purple: #7c3aed;
-  --el-brand-lime: #bef264;
 
   --el-primary: #7c3aed;
-  --el-primary-50: #eeedfe; /* pill / badge background */
-  --el-primary-700: #6d28d9; /* text on primary-50 */
+  --el-primary-50: #eeedfe;
+  --el-primary-700: #6d28d9;
   --el-primary-hover: #6d28d9;
   --el-primary-press: #5b21b6;
 
-  --el-accent: #bef264; /* lime — completion / progress */
-  --el-accent-deep: #84cc16; /* lime text on light bg */
+  --el-accent: #bef264;
+  --el-accent-deep: #84cc16;
 
   --el-page: #fafafa;
   --el-surface: #ffffff;
-  --el-surface-2: #f4f4f7; /* nested card */
+  --el-surface-2: #f4f4f7;
   --el-elevated: #ffffff;
   --el-overlay: rgba(15, 15, 20, 0.45);
 
-  --el-text-1: #0f0f14; /* primary text */
-  --el-text-2: #5c5c66; /* secondary text */
-  --el-text-3: #9494a0; /* hint / placeholder */
+  --el-text-1: #0f0f14;
+  --el-text-2: #5c5c66;
+  --el-text-3: #9494a0;
   --el-text-on-primary: #ffffff;
 
   --el-border: #e5e5ea;
@@ -41,15 +38,10 @@
   --el-warning-bg: #fef3c7;
   --el-info: #2563eb;
   --el-info-bg: #dbeafe;
-
-  /* Floating dark bottom nav — same in both modes. */
   --el-nav-bg: #15151c;
-  --el-nav-active: #7c3aed;
   --el-nav-icon: #a8a8b3;
-  --el-nav-icon-on: #ffffff;
 
   --el-font: var(--font-general-sans), system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --el-font-num: var(--font-general-sans), ui-monospace, monospace;
 
   --el-fs-timer: 56px;
   --el-fs-display: 32px;
@@ -66,7 +58,6 @@
   --el-lh-heading: 1.2;
   --el-lh-body: 1.5;
 
-  --el-fw-light: 300;
   --el-fw-regular: 400;
   --el-fw-medium: 500;
   --el-fw-semibold: 600;
@@ -75,39 +66,25 @@
   --el-tracking-snug: -0.01em;
   --el-tracking-wide: 0.08em;
 
-  --el-s-1: 4px;
-  --el-s-2: 8px;
-  --el-s-3: 12px;
-  --el-s-4: 16px;
-  --el-s-5: 20px;
-  --el-s-6: 24px;
-  --el-s-7: 32px;
-  --el-s-8: 40px;
-  --el-s-9: 48px;
-  --el-s-10: 64px;
+  --el-r-xs: 6px;
+  --el-r-sm: 10px;
+  --el-r-md: 12px;
+  --el-r-lg: 16px;
+  --el-r-xl: 20px;
 
-  /* === BORDERS === */
-  --border-subtle: rgba(255, 255, 255, 0.03);
-  --border-medium: rgba(255, 255, 255, 0.08);
-
-  --el-border-1: 1px solid var(--el-border);
-  --el-border-2: 1.5px solid var(--el-border-strong);
-
-  /* Shadows are subtle by design — separation comes from borders. */
+  /* === SHADOWS === */
   --el-shadow-1: 0 1px 2px rgba(15, 15, 20, 0.04);
   --el-shadow-2: 0 4px 12px rgba(15, 15, 20, 0.06);
   --el-shadow-3: 0 12px 32px rgba(15, 15, 20, 0.1);
   --el-shadow-nav: 0 8px 24px rgba(15, 15, 20, 0.18);
-  --el-ring-focus: 0 0 0 3px rgba(124, 58, 237, 0.28);
 
   --el-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --el-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --el-dur-1: 120ms; /* hover */
-  --el-dur-2: 200ms; /* press / open */
-  --el-dur-3: 320ms; /* sheet / route */
-  --el-dur-4: 560ms; /* progress fills */
+  --el-dur-1: 120ms;
+  --el-dur-2: 200ms;
+  --el-dur-3: 320ms;
+  --el-dur-4: 560ms;
 
-  /* shadcn semantic tokens bridged to the --el-* palette (light). */
   --radius: var(--el-r-md);
 
   --background: var(--el-page);
@@ -133,40 +110,21 @@
   --accent-foreground: var(--el-primary-700);
 
   --destructive: var(--el-danger);
-  --destructive-foreground: #ffffff;
+  --destructive-foreground: var(--el-text-on-primary);
 
   --border: var(--el-border);
   --input: var(--el-border);
-  --input-background: var(--el-surface);
-  --switch-background: var(--el-surface-2);
   --ring: var(--el-primary);
-
-  --chart-1: var(--el-brand-purple);
-  --chart-2: var(--el-accent-deep);
-  --chart-3: var(--el-info);
-  --chart-4: var(--el-warning);
-  --chart-5: var(--el-danger);
-
-  --sidebar: var(--el-surface);
-  --sidebar-foreground: var(--el-text-1);
-  --sidebar-primary: var(--el-primary);
-  --sidebar-primary-foreground: var(--el-text-on-primary);
-  --sidebar-accent: var(--el-primary-50);
-  --sidebar-accent-foreground: var(--el-primary-700);
-  --sidebar-border: var(--el-border);
-  --sidebar-ring: var(--el-primary);
 }
 
 .dark,
 [data-theme='dark'] {
-  --el-primary: #a78bfa; /* text / icons */
-  --el-primary-50: #2d1a5f; /* deep purple pill bg */
-  --el-primary-700: #c7b7ff; /* text on pill */
+  --el-primary: #a78bfa;
+  --el-primary-50: #2d1a5f;
+  --el-primary-700: #c7b7ff;
   --el-primary-hover: #8b5cf6;
   --el-primary-press: #7c3aed;
-  --el-text-on-primary: #ffffff;
 
-  --el-accent: #bef264;
   --el-accent-deep: #a3e635;
 
   --el-page: #0a0a0f;
@@ -195,54 +153,9 @@
   --el-shadow-2: 0 4px 12px rgba(0, 0, 0, 0.45);
   --el-shadow-3: 0 16px 40px rgba(0, 0, 0, 0.55);
   --el-shadow-nav: 0 12px 36px rgba(0, 0, 0, 0.55);
-  --el-ring-focus: 0 0 0 3px rgba(167, 139, 250, 0.4);
 
-  --background: var(--el-page);
-  --foreground: var(--el-text-1);
-
-  --card: var(--el-surface);
-  --card-foreground: var(--el-text-1);
-
-  --popover: var(--el-elevated);
-  --popover-foreground: var(--el-text-1);
-
-  /* Filled primaries keep the saturated brand purple so white text stays
-     legible; the lighter --el-primary is reserved for links/icons. */
   --primary: var(--el-brand-purple);
-  --primary-foreground: #ffffff;
-
-  --secondary: var(--el-surface-2);
-  --secondary-foreground: var(--el-text-1);
-
-  --muted: var(--el-surface-2);
-  --muted-foreground: var(--el-text-2);
-
-  --accent: var(--el-primary-50);
-  --accent-foreground: var(--el-primary-700);
-
-  --destructive: var(--el-danger);
-  --destructive-foreground: #0a0a0f;
-
-  --border: var(--el-border);
-  --input: var(--el-border);
-  --input-background: var(--el-surface);
-  --switch-background: var(--el-surface-2);
-  --ring: var(--el-primary);
-
-  --chart-1: #a78bfa;
-  --chart-2: var(--el-accent-deep);
-  --chart-3: var(--el-info);
-  --chart-4: var(--el-warning);
-  --chart-5: var(--el-danger);
-
-  --sidebar: var(--el-surface);
-  --sidebar-foreground: var(--el-text-1);
-  --sidebar-primary: var(--el-primary);
-  --sidebar-primary-foreground: var(--el-text-on-primary);
-  --sidebar-accent: var(--el-primary-50);
-  --sidebar-accent-foreground: var(--el-primary-700);
-  --sidebar-border: var(--el-border);
-  --sidebar-ring: var(--el-primary);
+  --destructive-foreground: var(--el-page);
 }
 
 @theme inline {
@@ -264,35 +177,12 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
-  --color-input-background: var(--input-background);
-  --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Brand/surface utilities: enables bg-surface, bg-page, text-lime, border-strong, etc. */
   --color-brand-purple: var(--el-brand-purple);
-  --color-brand-lime: var(--el-brand-lime);
-  --color-page: var(--el-page);
-  --color-surface: var(--el-surface);
-  --color-surface-2: var(--el-surface-2);
-  --color-elevated: var(--el-elevated);
   --color-lime: var(--el-accent);
   --color-lime-deep: var(--el-accent-deep);
-  --color-text-1: var(--el-text-1);
-  --color-text-2: var(--el-text-2);
-  --color-text-3: var(--el-text-3);
+  --color-hint: var(--el-text-3); /* third text tier — shadcn only has two */
   --color-border-strong: var(--el-border-strong);
   --color-success: var(--el-success);
   --color-success-bg: var(--el-success-bg);
@@ -303,12 +193,15 @@
   --color-info: var(--el-info);
   --color-info-bg: var(--el-info-bg);
   --color-nav-bg: var(--el-nav-bg);
-  --color-nav-active: var(--el-nav-active);
   --color-nav-icon: var(--el-nav-icon);
-  --color-nav-icon-on: var(--el-nav-icon-on);
 
   --font-sans: var(--el-font);
-  --font-mono: var(--el-font-num);
+
+  --radius-xs: var(--el-r-xs);
+  --radius-sm: var(--el-r-sm);
+  --radius-md: var(--el-r-md);
+  --radius-lg: var(--el-r-lg);
+  --radius-xl: var(--el-r-xl);
 
   --shadow-el-1: var(--el-shadow-1);
   --shadow-el-2: var(--el-shadow-2);
@@ -325,7 +218,7 @@
   }
 
   html {
-    font-size: var(--font-size);
+    font-size: 16px;
   }
 
   body {
