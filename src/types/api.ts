@@ -1,7 +1,10 @@
-export interface User {
+export interface UserIdentity {
   id: string;
   username: string;
   email: string;
+}
+
+export interface User extends UserIdentity {
   workouts?: Workout[];
   createdAt: string;
   updatedAt: string;
@@ -89,11 +92,19 @@ export interface PaginatedResponse<T> {
   links: PaginationLinks;
 }
 
-export interface ApiResponse<T> {
-  statusCode: number;
-  message: string;
-  timestamp: string;
+export interface ApiEnvelope<T> {
+  apiVersion?: string;
   data: T;
+}
+
+export interface ApiErrorEnvelope {
+  apiVersion?: string;
+  error: {
+    statusCode: number;
+    message: string;
+    timestamp: string;
+    path: string;
+  };
 }
 
 export interface CreateWorkoutDto {

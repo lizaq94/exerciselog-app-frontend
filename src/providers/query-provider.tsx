@@ -4,6 +4,7 @@ import { ReactNode, useState } from 'react';
 import { isAxiosError } from 'axios';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { SessionExpiredProvider } from '@/providers/session-expired-provider';
 
 export function QueryProvider({ children }: { children: ReactNode }) {
   const [queryClient] = useState(
@@ -27,7 +28,7 @@ export function QueryProvider({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
+      <SessionExpiredProvider>{children}</SessionExpiredProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

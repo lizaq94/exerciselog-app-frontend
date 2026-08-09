@@ -1,15 +1,24 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 if (!API_URL && typeof window !== 'undefined') {
   throw new Error(
     'NEXT_PUBLIC_API_URL environment variable is not defined. Check your .env.local file.',
   );
 }
 
+const ENVELOPE_KEYS = ['apiVersion', 'data'];
+
+function isEnvelope(body: unknown): body is { data: unknown } {
+  if (typeof body !== 'object' || body === null || Array.isArray(body)) return false;
+  const keys = Object.keys(body);
+  return keys.includes('data') && keys.every((key) => ENVELOPE_KEYS.includes(key));
+}
+
 let onSessionExpired: (() => void) | null = null;
 
-export function setOnSessionExpired(callback: () => void) {
+export function setOnSessionExpired(callback: (() => void) | null) {
   onSessionExpired = callback;
 }
 
@@ -40,7 +49,7 @@ const processQueue = (error: AxiosError | null) => {
 
 apiClient.interceptors.response.use(
   (response) => {
-    if (response.data && 'statusCode' in response.data && 'data' in response.data) {
+    if (isEnvelope(response.data)) {
       response.data = response.data.data;
     }
     return response;

@@ -10,7 +10,7 @@ export function proxy(request: NextRequest) {
 
   if (authRoutes.includes(pathname)) {
     if (isAuthenticated) {
-      return NextResponse.redirect(new URL('/workouts', request.url));
+      return NextResponse.redirect(new URL('/dashboard', request.url));
     }
     return NextResponse.next();
   }
@@ -26,6 +26,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     '/',
+    '/dashboard/:path*',
     '/login',
     '/signup',
     '/workouts/:path*',

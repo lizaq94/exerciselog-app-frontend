@@ -52,8 +52,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={generalSans.variable} suppressHydrationWarning>
-      <body className="antialiased">
+    <html
+      lang="en"
+      className={`h-full max-h-screen w-full ${generalSans.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="h-full antialiased">
         <ThemeProvider>
           <QueryProvider>{children}</QueryProvider>
           <Toaster />
