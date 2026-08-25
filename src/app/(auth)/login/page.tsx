@@ -1,17 +1,17 @@
 import { LoginForm, LoginFormSkeleton } from '@/features/auth';
 import { Suspense } from 'react';
 import Link from 'next/link';
+import { PageHeader } from '@/shared/components/layout/page-header';
 
 export const metadata = { title: 'Sign in' };
 
 export default function Login() {
   return (
     <div className="bg-background px-4 font-sans">
-      <header className="mb-10">
-        <h2>Sign in</h2>
-        <p className="text-muted-foreground">Go back to your plan - grow fast</p>
-      </header>
-
+      <PageHeader
+        title="Sign in"
+        description="Welcome back! Continue your fitness journey and crush your goals"
+      />
       <Suspense fallback={<LoginFormSkeleton />}>
         <LoginForm />
       </Suspense>

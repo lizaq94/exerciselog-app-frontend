@@ -50,8 +50,20 @@ export function LoginForm() {
   return (
     <Form {...form}>
       <form className="flex flex-col gap-4 py-4" onSubmit={form.handleSubmit(onSubmit)}>
-        <TextField control={form.control} name="email" type="email" label="Email" />
-        <TextField control={form.control} name="password" type="password" label="Password" />
+        <TextField
+          control={form.control}
+          name="email"
+          type="email"
+          label="Email"
+          autoComplete="email"
+        />
+        <TextField
+          control={form.control}
+          name="password"
+          type="password"
+          label="Password"
+          autoComplete="current-password"
+        />
         {form.formState.errors.root && (
           <p role="alert" className="text-destructive text-sm">
             {form.formState.errors.root.message}

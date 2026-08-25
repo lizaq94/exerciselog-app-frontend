@@ -11,6 +11,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Control, FieldPath, FieldValues } from 'react-hook-form';
 import { ComponentProps } from 'react';
+import { cn } from '@/lib/utils';
 
 type TextFieldProps<TFieldValues extends FieldValues, TName extends FieldPath<TFieldValues>> = {
   control: Control<TFieldValues>;
@@ -35,7 +36,14 @@ export function TextField<TFieldValues extends FieldValues, TName extends FieldP
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input {...field} {...inputProps} />
+            <Input
+              {...field}
+              {...inputProps}
+              className={cn(
+                'rounded-sm placeholder:text-sm focus-visible:ring-[1px]',
+                inputProps.className,
+              )}
+            />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
