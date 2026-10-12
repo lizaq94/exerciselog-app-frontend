@@ -40,4 +40,4 @@ const useLogout = () => {
   });
 };
 
-export { useCurrentUser, useLogin, useSignUp };
+export { useCurrentUser, useLogin, useSignUp, useLogout };

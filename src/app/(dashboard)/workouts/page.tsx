@@ -1,7 +1,7 @@
-export default function DashboardPage() {
+export default function WorkoutsPage() {
   return (
     <div className="bg-background px-4 font-sans">
-      <h1>DASHBOARD</h1>
+      <h1>Workouts page</h1>
     </div>
   );
 }
